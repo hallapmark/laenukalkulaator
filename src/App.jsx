@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import './App.css'
 
 function App() {
@@ -30,21 +30,34 @@ function App() {
   }
 
   return (
-    <>
-      <label>Kinnisvara ostuhind</label>
-      <input type="number" defaultValue={75000} ref={ostuhind} onChange={arvutaLaenusumma} /> <br />
-      <label>Sissemakse</label>
-      <input type="number" defaultValue={0} ref={sissemakse} onChange={arvutaLaenusumma} /> <br />
-      <div>Laenusumma: {laenusumma}</div>
-      <label>Periood</label>
-      <input type="number" defaultValue={30} ref={periood} onChange={arvutaKuumakse}/> <br />
-      <label>Marginaal</label>
-      <input type="number" defaultValue={1.7} ref={marginaal} onChange={arvutaIntress} /> <br />
-      <label>Euribor</label>
-      <input type="number" defaultValue={2.15} ref={euribor} onChange={arvutaIntress} /> <br />
-      <div>Intress kokku: {intress}</div>
-      <div>Kuumakse: {kuumakse}</div>
-    </>
+    <Fragment>
+      <h1>Laenukalkulaator</h1>
+      <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "space-between", alignItems: "center" }}>
+          <label className="field-label">Kinnisvara ostuhind</label>
+          <input type="number" defaultValue={75000} ref={ostuhind} onChange={arvutaLaenusumma} />
+        </div>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "space-between", alignItems: "center" }}>
+          <label className="field-label">Sissemakse</label>
+          <input type="number" defaultValue={0} ref={sissemakse} onChange={arvutaLaenusumma} />
+        </div>
+        <div>Laenusumma: {laenusumma}</div>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "space-between", alignItems: "center" }}>
+          <label className="field-label">Periood</label>
+          <input type="number" defaultValue={30} ref={periood} onChange={arvutaKuumakse}/>
+        </div>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "space-between", alignItems: "center" }}>
+          <label className="field-label">Marginaal</label>
+          <input type="number" defaultValue={1.7} ref={marginaal} onChange={arvutaIntress} />
+        </div>
+        <div style={{ display: "flex", gap: "12px", justifyContent: "space-between", alignItems: "center" }}>
+          <label className="field-label">Euribor</label>
+          <input type="number" defaultValue={2.15} ref={euribor} onChange={arvutaIntress} />
+        </div>
+        <div>Intress kokku: {intress}</div>
+        <div>Kuumakse: {kuumakse}</div>
+      </div>
+    </Fragment>
   )
 }
 

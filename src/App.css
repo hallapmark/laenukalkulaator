@@ -5,7 +5,8 @@
   text-align: center;
 }
 
-.card {
-  padding: 2em;
+
+.field-label {
+  font-weight: 700;
 }
 
